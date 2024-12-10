@@ -1,9 +1,9 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Logotipo_UOC.svg/480px-Logotipo_UOC.svg.png" alt="UOC" width="100"/>
 
-<img src="logo.png" alt="Real Advisor" width="300"/>
+<img src="images/logo.png" alt="Real Advisor" width="300"/>
 
 # Real Advisor
-
+         
 Descubre las mejores oportunidades inmobiliarias en Barcelona con nuestro sistema de recomendación. Analiza datos clave, estima rentabilidad y riesgos, y recibe informes detallados para decisiones inteligentes.
 
 ## Objeto
@@ -16,6 +16,25 @@ El sistema solicitará al usuario una serie de datos para realizar el análisis,
 
 El sistema podrá estimar el importe de alquiler de esa vivienda teniendo en cuenta el municipio, la superficie y demás características del inmueble
 Como resultado, el sistema devolverá un informe comercial del inmuebles analizado según el riesgo y la rentabilidad estimada y otros factores.
+
+## Detalles
+
+```Python
+
+real_advisor = {
+   'Autor': 'Germán Zeitz Lalanne'
+   'Fecha':'dic/2024'
+   'Lenguaje': 'Python'
+   'Licencia': 'MIT'
+   'Repositorio': {
+      'GitHub': 'https://github.com/germanztz/data-science-uoc-realadvisor'
+   }
+   'Planificacion':{
+      'Projects': 'https://github.com/users/germanztz/projects/2'
+   }
+
+}
+```
 
 ## Alcance
 
@@ -60,7 +79,7 @@ Para abordar este análisis mediante una metodología ágil, vamos a estructurar
 
 Aquí está el desglose de la metodología ágil aplicada a este proyecto de análisis: fichero adjunto: [planificación](planificación.md)
 
-![alt text](image.png)
+![alt text](images/image.png)
 
 ## Metodología
 
@@ -224,6 +243,119 @@ Los datos a analizar en el sistema incluirán:
 - [habitaclia](https://www.habitaclia.com)
 
 # 2. Análisis exploratorio
+
+   1. **Análisis de Series de Tiempo**: Realizar un análisis exhaustivo de las tendencias y patrones temporales presentes en los datos.
+
+      ![alt text](images/image-1.png)![alt text](images/image-2.png)![alt text](images/image-3.png)
+
+      - El mercado de alquiler sigue una tendencia de crecimiento a largo plazo, con fluctuaciones estacionales bien definidas.
+      - Las ligeras irregularidades en los residuos sugieren que hay factores adicionales que podrían influir en los precios pero que no siguen patrones sistemáticos.
+      - El precio de venta muestra un crecimiento sostenido a largo plazo, con patrones estacionales bien definidos.
+      - Los residuos y puntos atípicos pueden estar vinculados a cambios en políticas económicas, fluctuaciones de mercado, o eventos globales, como la pandemia en 2020.
+---
+
+   2. **Análisis Exploratorio de Datos (EDA)**: Identificar patrones, anomalías y relaciones entre las variables mediante visualizaciones y estadísticas descriptivas.
+
+      ![alt text](images/image-15.png)
+---
+
+   3. **Análisis de Calidad de los Datos**: Evaluar la calidad de los datos, identificando problemas como valores faltantes, inconsistencias, errores o duplicados.
+
+      ![alt text](images/image-11.png)
+
+      1. **Columnas con Mayor Cantidad de Datos Nulos:**
+         * **precio_alquiler:** Presenta una gran cantidad de datos faltantes, lo que sugiere que muchos registros no tienen información sobre el precio de alquiler.
+         * **precio_venta:** También muestra una cantidad significativa de datos nulos, indicando que el precio de venta no está registrado en muchos casos.
+         * **superficie_venta:** Al igual que las anteriores, esta columna presenta muchos valores faltantes, lo que podría indicar que no se dispone de información sobre la superficie de venta en muchos inmuebles.
+
+---
+
+   4. **Análisis Gráfico de los Datos**: Representar gráficamente las variables mediante gráficos como histogramas, diagramas de dispersión, boxplots, entre otros, para facilitar la comprensión visual de los datos.
+
+      ![alt text](images/image-5.png)
+
+      ![alt text](images/image-7.png)
+
+      ![alt text](images/image-6.png)
+
+      ![alt text](images/image-8.png)
+
+      ![alt text](images/image-9.png)
+
+---
+   5. **Segmentación Inteligente de los Datos**: Implementar técnicas de segmentación avanzadas que aporten valor al análisis y la extracción de insights relevantes.
+---
+   6. **Análisis de Correlación**: Evaluar las relaciones y asociaciones entre las variables mediante matrices de correlación y análisis de dependencias.
+
+      ![alt text](images/image-10.png)
+
+      1. **Relación fuerte entre `precio_alquiler` y `precio_venta`**:
+         - Existe una correlación positiva alta (0.80), lo que indica que cuando el precio de alquiler aumenta, también tiende a aumentar el precio de venta. Esto sugiere una relación directa entre estos dos mercados.
+
+      2. **Baja correlación entre `superficie_venta` y las demás variables**:
+         - `superficie_venta` no muestra una correlación significativa con ninguna de las otras variables (valores cercanos a 0). Esto podría implicar que el tamaño no es un factor determinante en las variaciones de precio o que otros factores influyen más.
+
+      3. **Relaciones negativas con `codi_districte` y `codi_barri`**:
+         - Las variables `codi_districte` y `codi_barri` tienen correlaciones negativas con los precios (`precio_alquiler` y `precio_venta`), lo que podría reflejar diferencias geográficas: en ciertos distritos o barrios, los precios tienden a ser más bajos.
+
+      4. **Alta correlación entre `codi_districte` y `codi_barri` (0.86)**:
+         - Esto es lógico, ya que ambos códigos están relacionados jerárquicamente (barrios están dentro de distritos).
+
+      ### Interpretación
+      - La relación entre precios de alquiler y venta es clave para entender cómo se comportan estos mercados de forma conjunta.
+      - La superficie parece no ser tan determinante, pero podría ser útil segmentar el análisis para evaluar relaciones específicas en ciertos barrios o distritos.
+      - Las correlaciones con los códigos geográficos reflejan posibles patrones espaciales, que podrían analizarse más a fondo para identificar zonas con características particulares en los precios.
+
+
+      ![alt text](images/image-12.png)
+
+---
+
+   7. **Análisis de Outliers**: Detectar y tratar los valores atípicos (outliers) presentes en los datos para mejorar la precisión de los modelos.
+
+      ![alt text](images/image-4.png)
+
+      ![alt text](images/image-13.png)
+
+      ![alt text](images/image-14.png)
+
+---
+   8. **Análisis de Cohortes Avanzados**: Realizar segmentación y análisis del comportamiento de los usuarios a lo largo del tiempo, con el objetivo de identificar patrones de retención, uso y otros comportamientos clave.
+
+
+      ![alt text](images/image-16.png)
+
+      ![alt text](images/image-17.png)
+
+      ![alt text](images/image-18.png)
+
+      ![alt text](images/image-19.png)
+
+
+---
+
+1. **Modelamiento**: Se desarrollarán modelos de aprendizaje automático (ML) para predecir la rentabilidad futura de una inversión inmobiliaria y el retorno sobre la inversión (ROI).
+
+   9. **Modelos de Regresión Regularizados**: Implementar modelos de regresión regularizados (como Ridge, Lasso, ElasticNet), utilizando técnicas de búsqueda de hiperparámetros para optimizar el rendimiento del modelo.
+
+      ![alt text](images/image-20.png)
+
+---
+
+   10. **Modelos de Clasificación**: Desarrollar y optimizar modelos de clasificación (como árboles de decisión, SVM, k-NN), utilizando los métodos adecuados de validación y evaluación.
+---
+   11. **Validación de Modelos**: Seleccionar los mejores modelos mediante validación cruzada con k-fold, para asegurar la robustez y generalización de los modelos creados.
+         - Modelo de regresión para interpolación para rellenado de precios faltantes
+         - Modelo de clasificación para predecir la ocupación del inmueble
+         - Modelo de extrapolación para predicción de precios actuales y futuros
+         - Uso de Modelos generativos DDL para interpretar las propiedades
+---
+
+1. **Desarrollo**: Se desarrollarán un sistema de recuperación de información y recomendación de inversiones inmobiliarias basado en los modelos desarrollados.
+
+   12. **Uso de Scraping para Variables Exógenas**: El proyecto debe incluir el uso de técnicas de web scraping para obtener variables adicionales de fuentes externas que aporten valor a los datos originales del proyecto.
+         - Scrapping de una web para extraer datos del inmueble necesarios para realizar la valoración de la inversión
+   - Generación del informe de valoración de la inversión del inmueble
 
 ### **2.1. Definición del objetivo**
 - **Objetivo general**: Analizar la evolución y las diferencias en los precios por metro cuadrado de alquiler y venta en los distritos y barrios de Barcelona para identificar tendencias, disparidades y posibles oportunidades de mercado.

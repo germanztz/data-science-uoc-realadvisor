@@ -1,0 +1,74 @@
+nom_barri,codi_districte,nom_districte,codi_barri
+el raval,1,ciutat vella,1
+el barri gotic,1,ciutat vella,2
+la barceloneta,1,ciutat vella,3
+"sant pere, santa caterina i la ribera",1,ciutat vella,4
+el fort pienc,2,eixample,5
+la sagrada familia,2,eixample,6
+la dreta de l'eixample,2,eixample,7
+l'antiga esquerra de l'eixample,2,eixample,8
+la nova esquerra de l'eixample,2,eixample,9
+sant antoni,2,eixample,10
+el poble sec,3,sants montjuic,11
+la marina del prat vermell,3,sants montjuic,12
+la marina de port,3,sants montjuic,13
+la font de la guatlla,3,sants montjuic,14
+hostafrancs,3,sants montjuic,15
+la bordeta,3,sants montjuic,16
+sants  badal,3,sants montjuic,17
+sants,3,sants montjuic,18
+les corts,4,les corts,19
+la maternitat i sant ramon,4,les corts,20
+pedralbes,4,les corts,21
+"vallvidrera, el tibidabo i les planes",5,sarria sant gervasi,22
+sarria,5,sarria sant gervasi,23
+les tres torres,5,sarria sant gervasi,24
+sant gervasi  la bonanova,5,sarria sant gervasi,25
+sant gervasi  galvany,5,sarria sant gervasi,26
+el putxet i el farro,5,sarria sant gervasi,27
+vallcarca i els penitents,6,gracia,28
+el coll,6,gracia,29
+la salut,6,gracia,30
+la vila de gracia,6,gracia,31
+el camp d'en grassot i gracia nova,6,gracia,32
+el baix guinardo,7,horta guinardo,33
+can baro,7,horta guinardo,34
+el guinardo,7,horta guinardo,35
+la font d'en fargues,7,horta guinardo,36
+el carmel,7,horta guinardo,37
+la teixonera,7,horta guinardo,38
+sant genis dels agudells,7,horta guinardo,39
+montbau,7,horta guinardo,40
+la vall d'hebron,7,horta guinardo,41
+la clota,7,horta guinardo,42
+horta,7,horta guinardo,43
+vilapicina i la torre llobeta,8,nou barris,44
+porta,8,nou barris,45
+el turo de la peira,8,nou barris,46
+can peguera,8,nou barris,47
+la guineueta,8,nou barris,48
+canyelles,8,nou barris,49
+les roquetes,8,nou barris,50
+verdun,8,nou barris,51
+la prosperitat,8,nou barris,52
+la trinitat nova,8,nou barris,53
+torre baro,8,nou barris,54
+ciutat meridiana,8,nou barris,55
+vallbona,8,nou barris,56
+la trinitat vella,9,sant andreu,57
+baro de viver,9,sant andreu,58
+el bon pastor,9,sant andreu,59
+sant andreu,9,sant andreu,60
+la sagrera,9,sant andreu,61
+el congres i els indians,9,sant andreu,62
+navas,9,sant andreu,63
+el camp de l'arpa del clot,10,sant marti,64
+el clot,10,sant marti,65
+el parc i la llacuna del poblenou,10,sant marti,66
+la vila olimpica del poblenou,10,sant marti,67
+el poblenou,10,sant marti,68
+diagonal mar i el front maritim del poblenou,10,sant marti,69
+el besos i el maresme,10,sant marti,70
+provencals del poblenou,10,sant marti,71
+sant marti de provencals,10,sant marti,72
+la verneda i la pau,10,sant marti,73
