@@ -284,6 +284,11 @@ Los datos a analizar en el sistema incluirán:
 
 ---
    5. **Segmentación Inteligente de los Datos**: Implementar técnicas de segmentación avanzadas que aporten valor al análisis y la extracción de insights relevantes.
+
+      ![alt text](images/image-24.png) ![alt text](images/image-25.png)
+      
+      ![alt text](images/image-26.png) ![alt text](images/image-27.png) ![alt text](images/image-28.png) ![alt text](images/image-29.png)
+
 ---
    6. **Análisis de Correlación**: Evaluar las relaciones y asociaciones entre las variables mediante matrices de correlación y análisis de dependencias.
 
@@ -322,14 +327,137 @@ Los datos a analizar en el sistema incluirán:
 ---
    8. **Análisis de Cohortes Avanzados**: Realizar segmentación y análisis del comportamiento de los usuarios a lo largo del tiempo, con el objetivo de identificar patrones de retención, uso y otros comportamientos clave.
 
+      ### **Definición de las cohortes por métricas financieras**
 
-      ![alt text](images/image-16.png)
+      #### **1. Cohorte: Clase de Elasticidad del precio de compra medio en los últimos 10 años (`elasticidad_10y_stars`)**
+      - **Definición**: 
+      Esta cohorte clasifica los barrios en 5 clases según el cuartil de elasticidad del precio de compra medio. La elasticidad mide cómo responde el precio de compra de las viviendas a cambios en factores externos, como el nivel de ingresos, la oferta y demanda, o los cambios económicos. 
+      - Barrios con elasticidad alta: Responden significativamente a las fluctuaciones del mercado.
+      - Barrios con elasticidad baja: Presentan precios más estables.
+
+      ![alt text](images/image-30.png)
+
+      - **Utilidad**: 
+      - Identificar barrios con mayor volatilidad para inversores con mayor tolerancia al riesgo.
+      - Detectar zonas con precios estables para inversiones conservadoras.
+      - Analizar la sensibilidad de los barrios a cambios macroeconómicos, ayudando a prever posibles riesgos o ventajas en futuros escenarios.
+
+      ---
+
+      #### **2. Cohorte: Clase de Rentabilidad de inversión media en los últimos 10 años (`rentabilidad_10y_stars`)**
+      - **Definición**: 
+      Clasifica los barrios en 5 clases basándose en el cuartil de rentabilidad media (bruta o neta) generada por la inversión en propiedades en los últimos 10 años. La rentabilidad mide el retorno económico generado, comparando ingresos por alquiler o revalorización con el coste inicial de la inversión.
+
+      ![alt text](images/image-21.png)
+
+      - **Utilidad**:
+      - Identificar los barrios más rentables para maximizar el retorno económico.
+      - Comparar la relación entre rentabilidad y riesgo (elasticidad o estabilidad de precios).
+      - Evaluar la sostenibilidad de rentabilidades pasadas en el contexto actual del mercado inmobiliario.
+      - Segmentar inversores según su enfoque (rentabilidad a corto plazo vs. revalorización a largo plazo).
+
+      ---
+
+      #### **3. Cohorte: Clase de Crecimiento acumulado del precio de alquiler medio en los últimos 10 años (`grow_acu_alquiler_10y_stars`)**
+      - **Definición**: 
+      Esta cohorte clasifica los barrios en 5 clases según el cuartil de crecimiento acumulado en el precio medio del m² de alquiler en la última década. El crecimiento acumulado refleja la capacidad del barrio para atraer demanda y adaptarse a cambios en el mercado de alquiler.
+
+      ![alt text](images/image-22.png)
+
+      - **Utilidad**:
+      - Identificar barrios con alta demanda de alquiler (zonas emergentes o consolidadas).
+      - Evaluar oportunidades para inversión en alquiler basándose en tendencias históricas.
+      - Analizar la relación entre el crecimiento del alquiler y otros indicadores (ingresos de la población, nuevas infraestructuras, etc.).
+      - Diseñar estrategias de marketing o posicionamiento para propiedades en zonas de rápido crecimiento.
+
+      ---
+
+      #### **4. Cohorte: Clase de Crecimiento acumulado del precio de compra medio en los últimos 10 años (`grow_acu_venta_10y_stars`)**
+      - **Definición**: 
+      Clasifica los barrios en 5 clases basándose en el cuartil de crecimiento acumulado en el precio medio del m² de venta en los últimos 10 años. Representa la capacidad de revalorización de las propiedades en cada barrio.
+
+      ![alt text](images/image-23.png)
+
+      - **Utilidad**:
+      - Identificar barrios con alta revalorización para inversiones a largo plazo.
+      - Detectar áreas en declive o con crecimiento moderado, que puedan representar oportunidades de compra a precios reducidos.
+      - Evaluar la correlación entre el crecimiento del precio de venta y factores como la calidad de vida, inversiones en infraestructuras o evolución socioeconómica de la zona.
+      - Prever el impacto de nuevas normativas o cambios en la dinámica del mercado en el crecimiento futuro.
+
+      ---
+
+      ### **Insights relevantes que se pueden extraer**
+      1. **Análisis de rentabilidad vs. riesgo**: 
+         Comparando `elasticidad_10y_stars` con `rentabilidad_10y_stars`, es posible identificar barrios con rentabilidad alta pero riesgo bajo (ideal para inversiones conservadoras) o barrios de alta elasticidad y alta rentabilidad (para inversores agresivos).
+
+      2. **Oportunidades de crecimiento**: 
+         Relacionando `grow_acu_alquiler_10y_stars` y `grow_acu_venta_10y_stars`, se pueden identificar áreas con alta demanda de alquiler y revalorización de propiedades, óptimas para inversiones mixtas (compra para alquilar y reventa).
+
+      3. **Estrategias específicas por perfil de inversor**: 
+         - **Inversores a corto plazo**: Priorizar barrios con alta rentabilidad y elasticidad moderada.
+         - **Inversores a largo plazo**: Enfocarse en zonas con alto crecimiento acumulado en venta y estabilidad de precios.
+
+      4. **Identificación de zonas emergentes**:
+         Comparando `grow_acu_alquiler_10y_stars` y `elasticidad_10y_stars`, se pueden detectar barrios con demanda creciente y precios aún moderados, indicando potencial para revalorización futura.
+
+      5. **Impacto de factores externos**:
+         Analizando cómo la elasticidad varía entre barrios, es posible prever qué áreas serán más sensibles a cambios en normativas, tasas de interés o dinámica de oferta/demanda.
+
+      6. **Clasificación competitiva de barrios**: 
+         Usando las cohortes como base, es posible elaborar rankings de barrios para orientar a inversores o agentes inmobiliarios.
+
+      ### **Conclusión**
+      Estas cohortes permiten segmentar el mercado inmobiliario de forma avanzada, ofreciendo insights útiles para optimizar decisiones de inversión, diseño de políticas públicas o estrategias comerciales. Su combinación potencia el análisis multidimensional, ajustado a distintos perfiles y objetivos. 
+
+      ---
+
+      ### **Descripción de la cohorte `cohortes_distrito`**
+
+      ![alt text](images/image-19.png)
+
+      La cohorte `cohortes_distrito` se genera a partir de los datos del dataset agrupados por **distrito** (`codi_districte`) y **año** (`año`), con el objetivo de analizar las tendencias de los precios de alquiler y venta en diferentes distritos de Barcelona a lo largo del tiempo.
+
+      #### **Estructura de la cohorte `cohortes_distrito`**
+
+      1. **Identificador de cohorte**: La cohorte se define como la combinación del `codi_districte` (que representa el distrito de la ciudad) y el `año` de la fecha del dato (`mes` transformado en año). Así, cada fila del DataFrame representa un distrito y el año de las mediciones de precios, lo que permite observar cómo han evolucionado los precios de alquiler y venta en ese distrito a lo largo del tiempo.
+         
+         - **Cohorte**: `cohorte_distrito = codi_districte + '-' + año`
+
+      2. **Variables principales**:
+         - **`alquiler_medio`**: Precio medio de alquiler en ese distrito y año.
+         - **`venta_media`**: Precio medio de venta en ese distrito y año.
+         - **`codi_districte`**: Código del distrito, que se usa para identificar el área específica de Barcelona.
+         - **`año`**: El año de la medición, extraído de la columna `mes`.
+
+      ### **Insights relevantes que se pueden extraer de la cohorte `cohortes_distrito`**
+
+      1. **Análisis geográfico a nivel distrital**:
+         - **Diferencias regionales**: Los distritos de Barcelona suelen presentar características socioeconómicas distintas. Algunos pueden ser más turísticos, otros más residenciales o comerciales, lo que afecta tanto a la oferta como a la demanda de propiedades. Al crear una cohorte basada en el distrito y año, se puede observar cómo evoluciona el mercado de precios en diferentes áreas de la ciudad.
+         - **Estabilidad local**: El análisis de los precios por distrito permite observar si ciertas zonas experimentan una estabilidad o fluctuaciones a lo largo del tiempo, lo que puede ser valioso para inversores, planificadores urbanos y ciudadanos interesados en las tendencias inmobiliarias.
 
       ![alt text](images/image-17.png)
+      
+      2. **Evolución temporal de los precios**:
+         - Al agrupar los datos por año, es posible identificar si los precios de alquiler y venta en un distrito aumentan, disminuyen o permanecen estables a lo largo del tiempo. Esto puede reflejar factores como la gentrificación, cambios en la infraestructura, o políticas urbanísticas locales.
+         - **Estacionalidad**: Además de observar las tendencias anuales, esta cohorte podría ser útil para detectar patrones estacionales si se desglosara aún más en base a meses o trimestres.
+
 
       ![alt text](images/image-18.png)
 
-      ![alt text](images/image-19.png)
+
+      3. **Impacto de factores externos**:
+         - Las variaciones de los precios en los distritos podrían estar influenciadas por eventos o decisiones fuera del control de los individuos, como el desarrollo de infraestructuras, cambios en las leyes de arrendamiento, o proyectos urbanísticos. Esta cohorte ayuda a estudiar cómo esos factores afectan a cada distrito de manera distinta.
+
+      4. **Segmentación para análisis detallados**:
+         - La cohorte por distrito permite realizar un análisis más granular, lo que facilita la toma de decisiones específicas para cada zona. Por ejemplo, si un distrito muestra un aumento considerable en los precios, podría ser un indicativo de que la zona está siendo más demandada o que está pasando por un proceso de renovación o desarrollo.
+         - Las políticas urbanísticas o el desarrollo económico podrían ser analizados en función de cómo afectan a los diferentes distritos. Si el distrito con un alto índice de precios sube significativamente, se podría investigar si el área está siendo renovada o si tiene un crecimiento económico.
+
+      ![alt text](images/image-16.png)
+
+      ### **Conclusión**
+      La cohorte `cohortes_distrito` es valiosa porque permite hacer un análisis detallado de la evolución de los precios inmobiliarios en Barcelona, proporcionando información útil tanto para analistas de datos como para los responsables de la toma de decisiones en planificación urbana, inversión inmobiliaria y desarrollo económico.
+
+
 
 
 ---

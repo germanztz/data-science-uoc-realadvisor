@@ -13,7 +13,7 @@ Como resultado, el sistema devolverá un informe comercial del inmuebles analiza
 
 ## Planificación
 
-![alt text](image.png)
+![alt text](images/image.png)
 
 
 ### **SPRINT 1: Investigación**
