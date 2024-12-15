@@ -1,6 +1,6 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Logotipo_UOC.svg/480px-Logotipo_UOC.svg.png" alt="UOC" width="100"/>
 
-<img src="logo.png" alt="Real Advisor" width="300"/>
+<img src="images/logo.png" alt="Real Advisor" width="300"/>
 
 # Real Advisor
          
@@ -17,24 +17,20 @@ El sistema solicitará al usuario una serie de datos para realizar el análisis,
 El sistema podrá estimar el importe de alquiler de esa vivienda teniendo en cuenta el municipio, la superficie y demás características del inmueble
 Como resultado, el sistema devolverá un informe comercial del inmuebles analizado según el riesgo y la rentabilidad estimada y otros factores.
 
-## Detalles
+**Real Advisor**
+*   **Autor**: Germán Zeitz Lalanne
+*   **Fecha**: dic/2024
+*   **Lenguaje**: Python
+*   **Licencia**: MIT
+*   **Repositorio**:
+    *   **GitHub**: [https://github.com/germanztz/data-science-uoc-realadvisor](https://github.com/germanztz/data-science-uoc-realadvisor)
+*   **Planificacion**:
+    *   **Projects**: [https://github.com/users/germanztz/projects/2](https://github.com/users/germanztz/projects/2)
+*   **Código fuente**:
+    *   **Preparación de Datos**: [realadvisor_01_preparacion_datos.ipynb](realadvisor_01_preparacion_datos.ipynb)
+    *   **Análisis Exploratorio de Datos**: [realadvisor_02_eda.ipynb](realadvisor_02_eda.ipynb)
+    *   **Modelos de Predicción**: [realadvisor_03_model.ipynb](realadvisor_03_model.ipynb)
 
-```Python
-
-real_advisor = {
-   'Autor': 'Germán Zeitz Lalanne'
-   'Fecha':'dic/2024'
-   'Lenguaje': 'Python'
-   'Licencia': 'MIT'
-   'Repositorio': {
-      'GitHub': 'https://github.com/germanztz/data-science-uoc-realadvisor'
-   }
-   'Planificacion':{
-      'Projects': 'https://github.com/users/germanztz/projects/2'
-   }
-
-}
-```
 
 ## Alcance
 
@@ -79,7 +75,7 @@ Para abordar este análisis mediante una metodología ágil, vamos a estructurar
 
 Aquí está el desglose de la metodología ágil aplicada a este proyecto de análisis: fichero adjunto: [planificación](planificación.md)
 
-![alt text](image.png)
+![alt text](images/image.png)
 
 ## Metodología
 
@@ -246,7 +242,7 @@ Los datos a analizar en el sistema incluirán:
 
    1. **Análisis de Series de Tiempo**: Realizar un análisis exhaustivo de las tendencias y patrones temporales presentes en los datos.
 
-      ![alt text](image-1.png)![alt text](image-2.png)![alt text](image-3.png)
+      ![alt text](images/image-1.png)![alt text](images/image-2.png)![alt text](images/image-3.png)
 
       - El mercado de alquiler sigue una tendencia de crecimiento a largo plazo, con fluctuaciones estacionales bien definidas.
       - Las ligeras irregularidades en los residuos sugieren que hay factores adicionales que podrían influir en los precios pero que no siguen patrones sistemáticos.
@@ -256,12 +252,12 @@ Los datos a analizar en el sistema incluirán:
 
    2. **Análisis Exploratorio de Datos (EDA)**: Identificar patrones, anomalías y relaciones entre las variables mediante visualizaciones y estadísticas descriptivas.
 
-      ![alt text](image-15.png)
+      ![alt text](images/image-15.png)
 ---
 
    3. **Análisis de Calidad de los Datos**: Evaluar la calidad de los datos, identificando problemas como valores faltantes, inconsistencias, errores o duplicados.
 
-      ![alt text](image-11.png)
+      ![alt text](images/image-11.png)
 
       1. **Columnas con Mayor Cantidad de Datos Nulos:**
          * **precio_alquiler:** Presenta una gran cantidad de datos faltantes, lo que sugiere que muchos registros no tienen información sobre el precio de alquiler.
@@ -272,27 +268,27 @@ Los datos a analizar en el sistema incluirán:
 
    4. **Análisis Gráfico de los Datos**: Representar gráficamente las variables mediante gráficos como histogramas, diagramas de dispersión, boxplots, entre otros, para facilitar la comprensión visual de los datos.
 
-      ![alt text](image-5.png)
+      ![alt text](images/image-5.png)
 
-      ![alt text](image-7.png)
+      ![alt text](images/image-7.png)
 
-      ![alt text](image-6.png)
+      ![alt text](images/image-6.png)
 
-      ![alt text](image-8.png)
+      ![alt text](images/image-8.png)
 
-      ![alt text](image-9.png)
+      ![alt text](images/image-9.png)
 
 ---
    5. **Segmentación Inteligente de los Datos**: Implementar técnicas de segmentación avanzadas que aporten valor al análisis y la extracción de insights relevantes.
 
-      ![alt text](image-24.png) ![alt text](image-25.png)
+      ![alt text](images/image-24.png) ![alt text](images/image-25.png)
       
-      ![alt text](image-26.png) ![alt text](image-27.png) ![alt text](image-28.png) ![alt text](image-29.png)
+      ![alt text](images/image-26.png) ![alt text](images/image-27.png) ![alt text](images/image-28.png) ![alt text](images/image-29.png)
 
 ---
    6. **Análisis de Correlación**: Evaluar las relaciones y asociaciones entre las variables mediante matrices de correlación y análisis de dependencias.
 
-      ![alt text](image-10.png)
+      ![alt text](images/image-10.png)
 
       1. **Relación fuerte entre `precio_alquiler` y `precio_venta`**:
          - Existe una correlación positiva alta (0.80), lo que indica que cuando el precio de alquiler aumenta, también tiende a aumentar el precio de venta. Esto sugiere una relación directa entre estos dos mercados.
@@ -312,17 +308,17 @@ Los datos a analizar en el sistema incluirán:
       - Las correlaciones con los códigos geográficos reflejan posibles patrones espaciales, que podrían analizarse más a fondo para identificar zonas con características particulares en los precios.
 
 
-      ![alt text](image-12.png)
+      ![alt text](images/image-12.png)
 
 ---
 
    7. **Análisis de Outliers**: Detectar y tratar los valores atípicos (outliers) presentes en los datos para mejorar la precisión de los modelos.
 
-      ![alt text](image-4.png)
+      ![alt text](images/image-4.png)
 
-      ![alt text](image-13.png)
+      ![alt text](images/image-13.png)
 
-      ![alt text](image-14.png)
+      ![alt text](images/image-14.png)
 
 ---
    8. **Análisis de Cohortes Avanzados**: Realizar segmentación y análisis del comportamiento de los usuarios a lo largo del tiempo, con el objetivo de identificar patrones de retención, uso y otros comportamientos clave.
@@ -335,7 +331,7 @@ Los datos a analizar en el sistema incluirán:
       - Barrios con elasticidad alta: Responden significativamente a las fluctuaciones del mercado.
       - Barrios con elasticidad baja: Presentan precios más estables.
 
-      ![alt text](image-30.png)
+      ![alt text](images/image-30.png)
 
       - **Utilidad**: 
       - Identificar barrios con mayor volatilidad para inversores con mayor tolerancia al riesgo.
@@ -348,7 +344,7 @@ Los datos a analizar en el sistema incluirán:
       - **Definición**: 
       Clasifica los barrios en 5 clases basándose en el cuartil de rentabilidad media (bruta o neta) generada por la inversión en propiedades en los últimos 10 años. La rentabilidad mide el retorno económico generado, comparando ingresos por alquiler o revalorización con el coste inicial de la inversión.
 
-      ![alt text](image-21.png)
+      ![alt text](images/image-21.png)
 
       - **Utilidad**:
       - Identificar los barrios más rentables para maximizar el retorno económico.
@@ -362,7 +358,7 @@ Los datos a analizar en el sistema incluirán:
       - **Definición**: 
       Esta cohorte clasifica los barrios en 5 clases según el cuartil de crecimiento acumulado en el precio medio del m² de alquiler en la última década. El crecimiento acumulado refleja la capacidad del barrio para atraer demanda y adaptarse a cambios en el mercado de alquiler.
 
-      ![alt text](image-22.png)
+      ![alt text](images/image-22.png)
 
       - **Utilidad**:
       - Identificar barrios con alta demanda de alquiler (zonas emergentes o consolidadas).
@@ -376,7 +372,7 @@ Los datos a analizar en el sistema incluirán:
       - **Definición**: 
       Clasifica los barrios en 5 clases basándose en el cuartil de crecimiento acumulado en el precio medio del m² de venta en los últimos 10 años. Representa la capacidad de revalorización de las propiedades en cada barrio.
 
-      ![alt text](image-23.png)
+      ![alt text](images/image-23.png)
 
       - **Utilidad**:
       - Identificar barrios con alta revalorización para inversiones a largo plazo.
@@ -413,7 +409,7 @@ Los datos a analizar en el sistema incluirán:
 
       ### **Descripción de la cohorte `cohortes_distrito`**
 
-      ![alt text](image-19.png)
+      ![alt text](images/image-19.png)
 
       La cohorte `cohortes_distrito` se genera a partir de los datos del dataset agrupados por **distrito** (`codi_districte`) y **año** (`año`), con el objetivo de analizar las tendencias de los precios de alquiler y venta en diferentes distritos de Barcelona a lo largo del tiempo.
 
@@ -435,14 +431,14 @@ Los datos a analizar en el sistema incluirán:
          - **Diferencias regionales**: Los distritos de Barcelona suelen presentar características socioeconómicas distintas. Algunos pueden ser más turísticos, otros más residenciales o comerciales, lo que afecta tanto a la oferta como a la demanda de propiedades. Al crear una cohorte basada en el distrito y año, se puede observar cómo evoluciona el mercado de precios en diferentes áreas de la ciudad.
          - **Estabilidad local**: El análisis de los precios por distrito permite observar si ciertas zonas experimentan una estabilidad o fluctuaciones a lo largo del tiempo, lo que puede ser valioso para inversores, planificadores urbanos y ciudadanos interesados en las tendencias inmobiliarias.
 
-      ![alt text](image-17.png)
+      ![alt text](images/image-17.png)
       
       2. **Evolución temporal de los precios**:
          - Al agrupar los datos por año, es posible identificar si los precios de alquiler y venta en un distrito aumentan, disminuyen o permanecen estables a lo largo del tiempo. Esto puede reflejar factores como la gentrificación, cambios en la infraestructura, o políticas urbanísticas locales.
          - **Estacionalidad**: Además de observar las tendencias anuales, esta cohorte podría ser útil para detectar patrones estacionales si se desglosara aún más en base a meses o trimestres.
 
 
-      ![alt text](image-18.png)
+      ![alt text](images/image-18.png)
 
 
       3. **Impacto de factores externos**:
@@ -452,7 +448,7 @@ Los datos a analizar en el sistema incluirán:
          - La cohorte por distrito permite realizar un análisis más granular, lo que facilita la toma de decisiones específicas para cada zona. Por ejemplo, si un distrito muestra un aumento considerable en los precios, podría ser un indicativo de que la zona está siendo más demandada o que está pasando por un proceso de renovación o desarrollo.
          - Las políticas urbanísticas o el desarrollo económico podrían ser analizados en función de cómo afectan a los diferentes distritos. Si el distrito con un alto índice de precios sube significativamente, se podría investigar si el área está siendo renovada o si tiene un crecimiento económico.
 
-      ![alt text](image-16.png)
+      ![alt text](images/image-16.png)
 
       ### **Conclusión**
       La cohorte `cohortes_distrito` es valiosa porque permite hacer un análisis detallado de la evolución de los precios inmobiliarios en Barcelona, proporcionando información útil tanto para analistas de datos como para los responsables de la toma de decisiones en planificación urbana, inversión inmobiliaria y desarrollo económico.
@@ -464,7 +460,7 @@ Los datos a analizar en el sistema incluirán:
 
    9. **Modelos de Regresión Regularizados**: Implementar modelos de regresión regularizados (como Ridge, Lasso, ElasticNet), utilizando técnicas de búsqueda de hiperparámetros para optimizar el rendimiento del modelo.
 
-      ![alt text](image-20.png)
+      ![alt text](images/image-20.png)
 
 
       **Extrapolación de Precios a 12 Meses Futuros**
@@ -479,7 +475,7 @@ Los datos a analizar en el sistema incluirán:
       2.  **Evaluación de Modelos:** Al extrapolar precios, no solo estamos prediciendo el futuro, sino que también estamos poniendo a prueba la robustez y la capacidad de generalización de nuestros modelos. ¿Qué tan bien se desempeñan al predecir datos que no han visto antes? ¿Cómo manejan la incertidumbre del futuro?
       3.  **Comparación de Enfoques:** Al utilizar diferentes modelos (Lineal, Random Forest, Gradient Boosting, MLP, ARIMA, Prophet, modelos básicos de Media y Último Valor), podemos evaluar cuál de ellos se adapta mejor a la dinámica de los datos de precios de alquiler. Algunos modelos podrían ser mejores para capturar tendencias lineales, otros para manejar no linealidades o patrones estacionales.
 
-      ![alt text](image-31.png)
+      ![alt text](images/image-31.png)
 
 
       **El Significado de Cada Métrica**
@@ -487,89 +483,56 @@ Los datos a analizar en el sistema incluirán:
       En nuestro proyecto, hemos usado cuatro métricas principales para evaluar el rendimiento de nuestros modelos. Cada una tiene un enfoque distinto:
 
       1.  **RMSE (Raíz del Error Cuadrático Medio):**
-         *   **Concepto:** El RMSE mide la desviación promedio entre los precios predichos y los precios reales. Lo que hace es calcular la raíz cuadrada de la media de los errores al cuadrado.
-         *   **Interpretación:** Se expresa en la misma unidad que los precios (euros, en este caso). Un RMSE más bajo indica que los modelos son más precisos y sus predicciones están más cerca de los valores reales. El hecho de elevar al cuadrado los errores hace que los errores grandes tengan un impacto proporcionalmente mayor, por lo que RMSE es útil para detectar modelos que tienen errores grandes.
+      El RMSE mide la desviación promedio entre los precios predichos y los precios reales. Lo que hace es calcular la raíz cuadrada de la media de los errores al cuadrado.
+
       2.  **MAE (Error Absoluto Medio):**
-         *   **Concepto:** El MAE mide la desviación promedio entre los precios predichos y los precios reales, pero en lugar de elevar al cuadrado los errores utiliza el valor absoluto.
-         *   **Interpretación:** También se expresa en la misma unidad que los precios. Un MAE más bajo indica que, en promedio, los modelos tienen predicciones más precisas. MAE tiene menos influencia sobre errores grandes que RMSE, por lo que es útil para detectar modelos que tienen errores consistentes.
+      El MAE mide la desviación promedio entre los precios predichos y los precios reales, pero en lugar de elevar al cuadrado los errores utiliza el valor absoluto.
+
       3.  **MAPE (Error Porcentual Absoluto Medio):**
-         *   **Concepto:** El MAPE mide el error como un porcentaje. Calcula la diferencia absoluta entre los valores predichos y reales, luego divide por el valor real y lo expresa como porcentaje. Finalmente se calcula la media de estos porcentajes.
-         *   **Interpretación:** Un MAPE bajo indica que las predicciones del modelo tienen, en promedio, un error porcentual menor. Por ejemplo, un MAPE de 5% significa que, en promedio, las predicciones del modelo se desvían un 5% del precio real. Es útil para dar una medida relativa de la precisión del modelo, muy útil cuando trabajamos con datos de diferente escala.
+      El MAPE mide el error como un porcentaje. Calcula la diferencia absoluta entre los valores predichos y reales, luego divide por el valor real y lo expresa como porcentaje. Finalmente se calcula la media de estos porcentajes.
+
       4.  **R2 (Coeficiente de Determinación):**
-         *   **Concepto:** El R2 es una medida que indica qué proporción de la variabilidad de los precios de alquiler es explicada por nuestro modelo. El rango de esta métrica va entre 0 y 1.
-         *   **Interpretación:** Un R2 de 1 significa que el modelo explica toda la variabilidad de los datos (perfecto). Un R2 de 0 indica que el modelo no explica nada de la variabilidad, y por tanto el modelo no es mejor que simplemente predecir la media de los datos. Un R2 más alto indica que el modelo se ajusta mejor a los datos y puede explicar mejor las variaciones de precios.
-
-      **En resumen:**
-
-      *   **Extrapolación:** Nos permite predecir precios futuros, evaluar el rendimiento de nuestros modelos y comparar diferentes enfoques.
-      *   **Métricas:** Son nuestra "lupa" para entender cómo de bien funcionan nuestros modelos. Un RMSE/MAE/MAPE bajo y un R2 alto son, en general, los indicadores de un buen modelo.
-      *   **Análisis:** Hay que tener en cuenta que estas métricas no son la única herramienta para valorar nuestros modelos. Los resultados obtenidos con diferentes métricas deben ser analizados en el contexto de nuestro problema.
+      El R2 es una medida que indica qué proporción de la variabilidad de los precios de alquiler es explicada por nuestro modelo. El rango de esta métrica va entre 0 y 1.
 
 
    **Modelos de Machine Learning**
 
    Estos modelos se basan en aprender patrones a partir de los datos históricos para realizar predicciones.
 
-   ![alt text](image-32.png)
+   ![alt text](images/image-32.png)
 
    1.  **Regresión Lineal:**
-      *   **Concepto:** Es el modelo más simple, donde se asume que existe una relación lineal entre las características y el precio del alquiler. Busca encontrar una línea recta que mejor se ajuste a los datos.
-      *   **Cómo Funciona:** Calcula los coeficientes para cada característica (e.g., año, mes, código de barrio) para predecir el precio.
-      *   **Ventajas:** Es fácil de entender, rápido de entrenar y útil como línea base.
-      *   **Desventajas:** No captura relaciones complejas y puede dar resultados pobres si los datos no se ajustan a una relación lineal.
-      *   **Por qué se incluye:** Como punto de partida y referencia para modelos más complejos.
+   Es el modelo más simple, donde se asume que existe una relación lineal entre las características y el precio del alquiler. Busca encontrar una línea recta que mejor se ajuste a los datos.
+
    2.  **Random Forest:**
-      *   **Concepto:** Es un modelo de "ensamble" que utiliza una multitud de árboles de decisión. Cada árbol se entrena con un subconjunto aleatorio de los datos y las características, y las predicciones de todos los árboles se promedian para obtener la predicción final.
-      *   **Cómo Funciona:** Crea múltiples árboles, cada uno con diferentes subconjuntos de los datos y características.
-      *   **Ventajas:** Maneja bien no linealidades y datos complejos, es robusto a outliers (valores atípicos), tiene menor riesgo de overfitting (sobreajuste).
-      *   **Desventajas:** Es más complejo que la regresión lineal y requiere más potencia de cálculo, es menos interpretable.
-      *   **Por qué se incluye:** Para ver cómo funciona un modelo más potente y flexible y si la no linealidad presente en los datos influye en los resultados
+   Es un modelo de "ensamble" que utiliza una multitud de árboles de decisión. Cada árbol se entrena con un subconjunto aleatorio de los datos y las características, y las predicciones de todos los árboles se promedian para obtener la predicción final.
+
    3.  **Gradient Boosting:**
-      *   **Concepto:** Es otro modelo de ensamble, que a diferencia de Random Forest construye los árboles de forma secuencial y cada nuevo árbol intenta corregir los errores del anterior.
-      *   **Cómo Funciona:** Entrena secuencialmente árboles de decisión, cada uno corrigiendo los errores del modelo anterior. Utiliza una técnica llamada "boosting" para combinar los resultados.
-      *   **Ventajas:** Ofrece alta precisión, es muy flexible y también robusto a outliers.
-      *   **Desventajas:** Requiere más tiempo de entrenamiento y ajuste, es más propenso al overfitting.
-      *   **Por qué se incluye:** Para ver si es capaz de mejorar los resultados de Random Forest, y entender si la secuencia y el boosting son buenos mecanismos para este problema
+   Es otro modelo de ensamble, que a diferencia de Random Forest construye los árboles de forma secuencial y cada nuevo árbol intenta corregir los errores del anterior.
+
    4.  **MLP (Red Neuronal Multicapa):**
-      *   **Concepto:** Es una red neuronal artificial con una o más capas ocultas. Los datos pasan a través de las capas, donde cada neurona aplica una transformación y aprende patrones complejos.
-      *   **Cómo Funciona:** Las neuronas en las capas procesan los datos utilizando funciones de activación y aprenden patrones complejos a través de ajustes de pesos.
-      *   **Ventajas:** Puede modelar relaciones muy complejas, tiene gran poder de representación.
-      *   **Desventajas:** Requiere más tiempo de entrenamiento y ajuste, puede ser difícil de interpretar y es propenso al overfitting.
-      *   **Por qué se incluye:** Para ver cómo un modelo de Deep Learning puede funcionar en este problema, capaz de aprender relaciones no lineales complejas.
+   Es una red neuronal artificial con una o más capas ocultas. Los datos pasan a través de las capas, donde cada neurona aplica una transformación y aprende patrones complejos.
 
    **Modelos de Series Temporales**
 
    Estos modelos se diseñan específicamente para datos que cambian con el tiempo, como los precios de alquiler.
 
    5.  **ARIMA (Modelo Autorregresivo Integrado de Media Móvil):**
-      *   **Concepto:** Es un modelo lineal que predice valores futuros basándose en valores pasados. Utiliza componentes autorregresivos (AR), integrados (I) y de media móvil (MA) para capturar las dependencias temporales de los datos.
-      *   **Cómo Funciona:** Utiliza la información de valores pasados para predecir valores futuros.
-      *   **Ventajas:**  Es un modelo potente para series temporales con patrones estacionales y/o con tendencias.
-      *   **Desventajas:**  No maneja datos no lineales, requiere ajuste de sus parámetros y la definición de sus parámetros es importante para el buen rendimiento.
-      *   **Por qué se incluye:** Para comprobar si los patrones temporales de la serie (tendencia y estacionalidad) son un buen mecanismo para predecir los valores.
+   Es un modelo lineal que predice valores futuros basándose en valores pasados. Utiliza componentes autorregresivos (AR), integrados (I) y de media móvil (MA) para capturar las dependencias temporales de los datos.
+
+
    6.  **Prophet:**
-      *   **Concepto:** Es un modelo desarrollado por Facebook específicamente para series temporales con estacionalidad y tendencias.
-      *   **Cómo Funciona:**  Descompone la serie temporal en una tendencia, una estacionalidad y un término de error.
-      *   **Ventajas:**  Maneja bien datos con estacionalidad, tendencias y valores atípicos. Es fácil de usar y de ajustar.
-      *   **Desventajas:**  Es menos flexible que otros modelos de series temporales y puede fallar en series con relaciones complejas.
-      *   **Por qué se incluye:** Para evaluar si modelos especificos de series temporales pueden ser una alternativa en este problema, capturando mejor la estacionalidad y las tendencias de los datos.
+   Es un modelo desarrollado por Facebook específicamente para series temporales con estacionalidad y tendencias.
 
    **Modelos de Línea Base**
 
    Estos modelos son sencillos y sirven como referencia para evaluar la complejidad de los modelos más avanzados.
 
    7.  **Modelo de la Media Histórica:**
-      *   **Concepto:** Simplemente predice el valor de la variable objetivo utilizando la media de todos los valores de entrenamiento.
-      *   **Cómo Funciona:** Calcula la media de los datos de entrenamiento y predice ese valor para todos los puntos futuros.
-      *   **Ventajas:** Es simple y fácil de entender.
-      *   **Desventajas:** No se adapta a los datos, no tiene en cuenta ningun patrón y es propenso a errores grandes en los valores extremos.
-      *   **Por qué se incluye:** Como referencia, es una forma simple de entender cómo nuestros modelos más complejos pueden mejorar los resultados.
+   Simplemente predice el valor de la variable objetivo utilizando la media de todos los valores de entrenamiento.
+
    8.  **Modelo del Último Valor:**
-      *   **Concepto:** Predice el valor de la variable objetivo usando el último valor del conjunto de entrenamiento.
-      *   **Cómo Funciona:**  Toma el último valor de los datos de entrenamiento y predice ese valor para todos los puntos futuros.
-      *   **Ventajas:** Simple, puede ser útil si se sabe que el valor de la serie tiene una inercia temporal.
-      *   **Desventajas:**  No tiene en cuenta patrones, no se ajusta a los datos y es propenso a errores grandes si hay valores atípicos o patrones en la serie temporal.
-      *   **Por qué se incluye:** Como línea base muy simple, muy rápido de ejecutar.
+   Predice el valor de la variable objetivo usando el último valor del conjunto de entrenamiento.
 
    **En resumen:**
 
@@ -596,10 +559,10 @@ Los datos a analizar en el sistema incluirán:
 
    1.  **Preparación de datos:** Los datos se dividen en conjuntos de entrenamiento y prueba para evaluar el rendimiento del modelo en datos no vistos.
    
-   ![alt text](image-33.png)
+   ![alt text](images/image-33.png)
 
 
-   ![alt text](image-34.png)
+   ![alt text](images/image-34.png)
    
    2.  **Definición de un pipeline de procesamiento de texto:**
       *   **Vectorización:** Los textos se transforman en una matriz numérica utilizando `CountVectorizer`, que cuenta la frecuencia de las palabras. Se especifica una función `process_text` que se ejecuta antes del conteo de palabras para realizar un preprocesamiento del texto (como eliminación de ruido, stemming, etc.).
@@ -609,7 +572,7 @@ Los datos a analizar en el sistema incluirán:
    4.  **Predicción con el modelo:** Se realiza la predicción de las etiquetas de disponibilidad en el conjunto de prueba con el modelo ya entrenado.
    5.  **Evaluación del modelo:** Se genera un reporte de clasificación con métricas como precisión, recall, F1-score y soporte, para evaluar el rendimiento del modelo en cada clase.
 
-   ![alt text](image-36.png)
+   ![alt text](images/image-36.png)
 
    **Interpretación General del Reporte**
 
@@ -620,15 +583,15 @@ Los datos a analizar en el sistema incluirán:
    *   Los promedios ponderados son útiles para evaluar el rendimiento general, especialmente cuando hay desbalance en las clases, y el f1-score ponderado de 0.93 indica un buen balance general de precision y recall.
 
 
-   ![alt text](image-35.png)
+   ![alt text](images/image-35.png)
    
 
 ---
    11. **Validación de Modelos**: Seleccionar los mejores modelos mediante validación cruzada con k-fold, para asegurar la robustez y generalización de los modelos creados.
 
-   ![alt text](image-37.png)
+   ![alt text](images/image-37.png)
 
-   ![alt text](image-38.png)
+   ![alt text](images/image-38.png)
 ---
 
 1. **Desarrollo**: Se desarrollarán un sistema de recuperación de información y recomendación de inversiones inmobiliarias basado en los modelos desarrollados.
