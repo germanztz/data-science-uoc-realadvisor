@@ -481,6 +481,7 @@ Los datos a analizar en el sistema incluirán:
 
       ![alt text](image-31.png)
 
+
       **El Significado de Cada Métrica**
 
       En nuestro proyecto, hemos usado cuatro métricas principales para evaluar el rendimiento de nuestros modelos. Cada una tiene un enfoque distinto:
