@@ -582,12 +582,53 @@ Los datos a analizar en el sistema incluirán:
 ---
 
    10. **Modelos de Clasificación**: Desarrollar y optimizar modelos de clasificación (como árboles de decisión, SVM, k-NN), utilizando los métodos adecuados de validación y evaluación.
+
+   **Modelos Utilizados**
+
+   1.  **`CountVectorizer`:** Es un modelo de *vectorización de texto*. Su función es convertir texto en una matriz numérica de recuentos de palabras, que se utiliza como entrada para otros modelos.
+   2.  **`TfidfTransformer`:** Es un modelo de *transformación de texto*. Convierte la salida del `CountVectorizer` en una matriz TF-IDF, que da más peso a palabras relevantes.
+   3.  **`RandomForestClassifier`:** Es un *modelo de clasificación supervisado*. Su función es aprender patrones de los datos de entrenamiento y predecir la etiqueta de clase (disponibilidad) para nuevos datos.
+
+
+   El código crea un pipeline que transforma texto en una representación numérica, la cual utiliza para entrenar un modelo de *Random Forest* para clasificar la "disponibilidad" basándose en la descripción textual de un inmueble.
+   
+   El proceso se realiza en los siguientes pasos:
+
+   1.  **Preparación de datos:** Los datos se dividen en conjuntos de entrenamiento y prueba para evaluar el rendimiento del modelo en datos no vistos.
+   
+   ![alt text](image-33.png)
+
+
+   ![alt text](image-34.png)
+   
+   2.  **Definición de un pipeline de procesamiento de texto:**
+      *   **Vectorización:** Los textos se transforman en una matriz numérica utilizando `CountVectorizer`, que cuenta la frecuencia de las palabras. Se especifica una función `process_text` que se ejecuta antes del conteo de palabras para realizar un preprocesamiento del texto (como eliminación de ruido, stemming, etc.).
+      *   **Transformación TF-IDF:** La matriz de frecuencia de palabras se convierte a una representación TF-IDF (`TfidfTransformer`), donde a cada palabra se le asigna un peso que indica su relevancia en un documento concreto, reduciendo la importancia de las palabras que aparecen en todos los documentos.
+      *   **Clasificación:** Se utiliza un `RandomForestClassifier` para entrenar un modelo de clasificación basado en las representaciones numéricas del texto.
+   3.  **Entrenamiento del modelo:** El pipeline se entrena con el conjunto de entrenamiento para ajustar los parámetros de la vectorización, la transformación y el clasificador.
+   4.  **Predicción con el modelo:** Se realiza la predicción de las etiquetas de disponibilidad en el conjunto de prueba con el modelo ya entrenado.
+   5.  **Evaluación del modelo:** Se genera un reporte de clasificación con métricas como precisión, recall, F1-score y soporte, para evaluar el rendimiento del modelo en cada clase.
+
+   ![alt text](image-36.png)
+
+   **Interpretación General del Reporte**
+
+   *   El modelo tiene un buen rendimiento general, con una exactitud del 93%.
+   *   La clase `diponible` tiene un excelente rendimiento, tanto en precision como en recall.
+   *   La clase `ocupada` también tiene un buen rendimiento.
+   *   La clase `alquilada` tiene un rendimiento pobre en cuanto al recall, aunque su precisión sea perfecta. El modelo es muy preciso al predecir que una instancia es de tipo alquilada, pero no es capaz de encontrar todas las instancias de este tipo, es decir, no detecta todas las que realmente son alquiladas. Esto podría indicar que tu modelo tiene dificultades para identificar esta clase, y puede que necesites más datos o un modelo más complejo para la misma.
+   *   Los promedios ponderados son útiles para evaluar el rendimiento general, especialmente cuando hay desbalance en las clases, y el f1-score ponderado de 0.93 indica un buen balance general de precision y recall.
+
+
+   ![alt text](image-35.png)
+   
+
 ---
    11. **Validación de Modelos**: Seleccionar los mejores modelos mediante validación cruzada con k-fold, para asegurar la robustez y generalización de los modelos creados.
-         - Modelo de regresión para interpolación para rellenado de precios faltantes
-         - Modelo de clasificación para predecir la ocupación del inmueble
-         - Modelo de extrapolación para predicción de precios actuales y futuros
-         - Uso de Modelos generativos DDL para interpretar las propiedades
+
+   ![alt text](image-37.png)
+
+   ![alt text](image-38.png)
 ---
 
 1. **Desarrollo**: Se desarrollarán un sistema de recuperación de información y recomendación de inversiones inmobiliarias basado en los modelos desarrollados.
@@ -595,77 +636,3 @@ Los datos a analizar en el sistema incluirán:
    12. **Uso de Scraping para Variables Exógenas**: El proyecto debe incluir el uso de técnicas de web scraping para obtener variables adicionales de fuentes externas que aporten valor a los datos originales del proyecto.
          - Scrapping de una web para extraer datos del inmueble necesarios para realizar la valoración de la inversión
    - Generación del informe de valoración de la inversión del inmueble
-
-### **2.1. Definición del objetivo**
-- **Objetivo general**: Analizar la evolución y las diferencias en los precios por metro cuadrado de alquiler y venta en los distritos y barrios de Barcelona para identificar tendencias, disparidades y posibles oportunidades de mercado.
-- **Preguntas clave**:
-  - ¿Qué distritos tienen los precios más altos/bajos de alquiler y venta?
-  - ¿Qué relación existe entre los precios de alquiler y venta?
-  - ¿Cómo han evolucionado los precios en los últimos años?
-  - ¿Hay distritos con mayor estabilidad o volatilidad en los precios?
-
-
-### **2.2. Preparación de los datos**
-1. **Exploración inicial**:
-   - Revisión de las columnas: tipo, nombre, orden, mes, precio_alquiler, precio_venta, codi_districte, nom_districte, codi_barri.
-   - Identificación de valores nulos (e.g., "NaN" en precio_venta) y duplicados.
-   - Validación de consistencia entre las fechas y las ubicaciones (mes y codi_districte).
-
-2. **Limpieza**:
-   - Rellenar o eliminar valores faltantes según el análisis (e.g., imputación con la media, mediana o interpolación temporal para precios faltantes).
-   - Transformar las fechas (columna "mes") al formato datetime para facilitar el análisis temporal.
-
-3. **Enriquecimiento**:
-   - Calcular indicadores adicionales como:
-     - Relación alquiler/venta (\( \text{precio\_alquiler} / \text{precio\_venta} \)).
-     - Tasa de crecimiento trimestral/anual de precios.
-
----
-
-### **2.3. Análisis exploratorio**
-1. **Análisis descriptivo**:
-   - Calcular medias, medianas, y rangos intercuartílicos para alquiler y venta.
-   - Comparar precios entre distritos y barrios.
-
-2. **Visualización de datos**:
-   - Gráficos de líneas: evolución temporal de los precios por distrito.
-   - Mapas de calor: distribución geográfica de precios.
-   - Gráficos de dispersión: relación entre alquiler y venta.
-
-3. **Segmentación**:
-   - Clasificar distritos/barrios en rangos de precios (e.g., bajo, medio, alto).
-   - Identificar distritos con mayor volatilidad.
-
----
-
-### **2.4. Análisis avanzado**
-1. **Correlaciones**:
-   - Evaluar la relación entre precios de alquiler y venta.
-   - Explorar posibles factores externos (e.g., desarrollo económico, densidad poblacional).
-
-2. **Tendencias temporales**:
-   - Identificar picos o caídas significativas en precios.
-   - Evaluar estacionalidad y patrones anuales.
-
-3. **Comparación de rentabilidad**:
-   - Estimar la rentabilidad bruta de inversión en cada barrio (\( \frac{\text{precio\_alquiler} \times 12}{\text{precio\_venta}} \)).
-
----
-
-### **2.5. Interpretación de resultados**
-- Elaborar un ranking de distritos según:
-  - Precio medio de alquiler y venta.
-  - Relación entre alquiler y venta.
-  - Rentabilidad de inversión.
-- Identificar áreas con oportunidades de mercado (e.g., alta rentabilidad o precios estables).
-
----
-
-### **2.6. Presentación del análisis**
-1. **Informe estructurado**:
-   - Introducción: contexto y objetivo del análisis.
-   - Metodología: pasos seguidos para limpiar, analizar y visualizar los datos.
-   - Resultados clave: patrones, tendencias y rankings destacados.
-   - Conclusiones: insights sobre el mercado inmobiliario.
-   - Recomendaciones: áreas para inversión o acciones específicas.
-
